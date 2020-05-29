@@ -16,28 +16,12 @@ export const routes: Routes = [
     component: NgxAuthComponent,
     children: [
       {
-        path: 'login',
-        component: NgxLoginComponent,
-      },
-      {
         path: 'register',
         component: NgxRegisterComponent,
       },
-      {
-        path: 'logout',
-        component: NgxLogoutComponent,
-      },
-      {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
-      },
-      {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
-      },
     ],
   },
-  { path: '**', redirectTo: '/pages' },
+  { path: '**', redirectTo: 'register' },
 ];
 
 @NgModule({
