@@ -65,7 +65,7 @@ export const NB_CORE_PROVIDERS = [
         },
         register: {
           redirect: {
-            success: 'http://www.nortanprojetos.com',
+            success: '/externalRedirect?url=http://www.nortanprojetos.com',
             failure: null,
           },
           defaultErrors: [
