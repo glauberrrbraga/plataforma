@@ -6,11 +6,11 @@ import {
   NbThemeService,
 } from '@nebular/theme';
 
-import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
+import { UserService } from '../../../shared/services/user.service';
 
 @Component({
   selector: 'ngx-header',
@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
     private themeService: NbThemeService,
-    private userService: UserData,
+    private userService: UserService,
     private layoutService: LayoutService,
     private breakpointService: NbMediaBreakpointsService,
     private rippleService: RippleService
@@ -77,10 +77,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
 
-    this.userService
-      .getUsers()
+    this.userService.currentUser
       .pipe(takeUntil(this.destroy$))
-      .subscribe((users: any) => (this.user = users.nick));
+      .subscribe((user: any) => (this.user = user));
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService
