@@ -21,10 +21,10 @@
 @import './layout';
 @import './overrides';
 @import './material/material-overrides';
+@import '../components/file-uploader/file-uploader.component.theme';
 
 // install the framework and custom global styles
 @include nb-install() {
-
   @include angular-material();
 
   // framework global styles
@@ -37,4 +37,5 @@
 
   @include nb-overrides();
   @include material-overrides();
-};
+  @include nb-file-uploader-theme();
+}
